@@ -5,7 +5,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -84,11 +84,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Use the alias, you asshole: "
 eval $(thefuck --alias)
-alias cf="cd ~/repos/rblog/base && source ~/.virtualenvs/coverfox/bin/activate && clear"
 alias f='fuck'
-alias cf_honcho='cf && PYTHONIOENCODING=UTF-8 PYTHONUNBUFFERED=TRUE honcho -f procfile start redis celery'
-alias dj_run="cf && python manage.py runserver 0.0.0.0:8000"
+# Coverfox settings
+alias cf="cd ~/repos/rblog/base && source ~/.virtualenvs/coverfox/bin/activate && clear"
+alias cf_run='cf && PYTHONIOENCODING=UTF-8 PYTHONUNBUFFERED=TRUE honcho -f local_procfile start redis celery django'
+alias common_run="cf && cd ../common/ && honcho -f local_procfile start celerydistcoverfox celerydistjarvis"
+alias ultron_run="cf && cd ../jarvis/ && honcho -f local_procfile start redis node django"
 alias sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
+# End coverfox settings
 alias cf_vpn="cd /home/gblp009/Downloads/shobhit && sudo openvpn cfsingapore_openvpn.ovpn"
 alias v="vim"
 alias kp="fuser -n tcp -k "

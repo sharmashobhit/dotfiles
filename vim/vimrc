@@ -21,6 +21,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'cburroughs/pep8.py'
 Plugin 'scrooloose/syntastic'
+Plugin 'mhinz/vim-startify'
+Plugin 'tmhedberg/simpylfold'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -83,6 +85,8 @@ let g:ctrlp_prompt_mappings = {
     \ }
 :command Q q!
 "Colorscheme - badwolf, with some tweaks
+set background=dark
+syntax enable
 colorscheme badwolf
 let g:badwolf_darkgutter = 1
 let g:badwolf_tabline = 2
@@ -119,3 +123,7 @@ nmap <f4> :tab all<cr>
 set number
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
+
+" Fold map
+nnoremap <Space> za
+vnoremap <Space> za
