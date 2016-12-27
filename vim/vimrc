@@ -23,6 +23,10 @@ Plugin 'cburroughs/pep8.py'
 Plugin 'scrooloose/syntastic'
 Plugin 'mhinz/vim-startify'
 Plugin 'tmhedberg/simpylfold'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'burnettk/vim-angular'
+Plugin 'szw/vim-tags'
+Plugin 'lambdatoast/elm.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -85,9 +89,9 @@ let g:ctrlp_prompt_mappings = {
     \ }
 :command Q q!
 "Colorscheme - badwolf, with some tweaks
-set background=dark
+"set background=dark
 syntax enable
-colorscheme badwolf
+colorscheme monokai
 let g:badwolf_darkgutter = 1
 let g:badwolf_tabline = 2
 let g:badwolf_css_props_highlight = 1
@@ -120,10 +124,21 @@ endif
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 nmap <f4> :tab all<cr>
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-set number
+" set number
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
 " Fold map
 nnoremap <Space> za
 vnoremap <Space> za
+
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+set colorcolumn=120
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+set clipboard=unnamed

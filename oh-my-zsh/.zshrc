@@ -1,11 +1,11 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/gblp009/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,24 +49,23 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenvwrapper python web-search zsh_reload)
+plugins=(git virtualenvwrapper python web-search zsh_reload git-extras sudo archlinux celery common-aliases npm ssh-agent)
 
 # User configuration
-
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/shobhit/.gem/ruby/2.3.0/bin:/home/shobhit/repos"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,19 +85,23 @@ export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Use the alias, you asshole: "
 eval $(thefuck --alias)
 alias f='fuck'
 # Coverfox settings
-alias cf="cd ~/repos/rblog/base && source ~/.virtualenvs/coverfox/bin/activate && clear"
-alias cf_run='cf && PYTHONIOENCODING=UTF-8 PYTHONUNBUFFERED=TRUE honcho -f local_procfile start redis celery django'
+alias cf="cd ~/repos/rblog/base && clear"
+alias hotspot="sudo create_ap wlp3s0 enp2s0 ShobhitAPHotspot password"
+alias cf_honcho='cf && PYTHONIOENCODING=UTF-8 PYTHONUNBUFFERED=TRUE honcho -f local_procfile start redis celery'
+alias cf_django='cf && python manage.py runserver 0.0.0.0:8000'
 alias common_run="cf && cd ../common/ && honcho -f local_procfile start celerydistcoverfox celerydistjarvis"
 alias ultron_run="cf && cd ../jarvis/ && honcho -f local_procfile start redis node django"
 alias sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
 # End coverfox settings
-alias cf_vpn="cd /home/gblp009/Downloads/shobhit && sudo openvpn cfsingapore_openvpn.ovpn"
+alias cf_vpn="cd ~/Downloads/shobhit && sudo openvpn --config cfsingapore_openvpn.ovpn"
 alias v="vim"
 alias kp="fuser -n tcp -k "
 alias referencefile="vim ~/referencefile.txt"
 alias :qa="echo 'This is not VIM!'"
 alias :q="echo 'This is not VIM!'"
-export LC_ALL=C
+export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LC_CTYPE=en_US.UTF-8
 alias graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
-alias t="cd /home/gblp009/tor/tor-browser_en-US && ./start-tor-browser.desktop"
-eval "$BASH_POST_RC"
+#eval "$BASH_POST_RC"
+alias ync='yaourt --noconfirm'
