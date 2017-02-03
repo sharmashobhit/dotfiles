@@ -2,33 +2,28 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'sjl/badwolf'
-Plugin 'wikitopian/hardmode'
-Plugin 'godlygeek/tabular'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'cburroughs/pep8.py'
-Plugin 'scrooloose/syntastic'
-Plugin 'mhinz/vim-startify'
-Plugin 'tmhedberg/simpylfold'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'burnettk/vim-angular'
-Plugin 'szw/vim-tags'
-Plugin 'lambdatoast/elm.vim'
+Plug 'tpope/vim-fugitive'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'leafgarland/typescript-vim'
+Plug 'wikitopian/hardmode'
+Plug 'godlygeek/tabular'
+Plug 'kien/ctrlp.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'cburroughs/pep8.py'
+Plug 'scrooloose/syntastic'
+Plug 'mhinz/vim-startify'
+Plug 'tmhedberg/simpylfold'
+Plug 'flazz/vim-colorschemes'
+Plug 'szw/vim-tags'
 
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
 
 set runtimepath+=~/.vim_runtime
