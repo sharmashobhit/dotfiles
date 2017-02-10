@@ -2,8 +2,8 @@
 lock() {
     #i3lock -c 333333
     #i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
-    #i3lock -i ~/repos/dotfiles/i3/img/i3lock_black.png
-    i3lock -i  ~/Pictures/wallpaper.png
+    i3lock -i ~/repos/dotfiles/i3/img/i3lock_black.png
+    #i3lock -i  ~/Pictures/wallpaper.png
 }
 funlock() {
     i3lock -u -p win -i ~/repos/dotfiles/i3/img/i3lock_black.png
