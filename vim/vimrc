@@ -22,6 +22,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tmhedberg/simpylfold'
 Plug 'flazz/vim-colorschemes'
 Plug 'szw/vim-tags'
+Plug 'posva/vim-vue'
 
 call plug#end()
 filetype plugin indent on    " required
