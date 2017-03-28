@@ -270,20 +270,6 @@ bar {
         }
 }
 
-bar {
-        position top
-        status_command i3blocks
-        colors {
-            background $base03
-            statusline $base0
-            separator  $base01
-            focused_workspace  $yellow $yellow $base03
-            active_workspace   $base01 $base01 $base03
-            inactive_workspace $base02 $base03 $base0
-            urgent_workspace   $red $red $base3
-        }
-}
-
 client.focused          $base03 $base01 $base3 $blue
 client.focused_inactive $base03 $base02 $base0 $base02
 client.unfocused        $base03 $base02 $base0 $base02

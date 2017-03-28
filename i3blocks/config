@@ -151,3 +151,8 @@ interval=10
 #instance=NUM
 #interval=once
 #signal=11
+#
+[online-status]
+command=ping -c 3 google.com >> /dev/null||echo '***No Internet***'
+color=#FF0000
+interval=10
