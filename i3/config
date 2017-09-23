@@ -43,16 +43,13 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-#font pango:DejaVu Sans Mono 9
-#font pango: Cantarell Bold 10
-#font pango: Share Tech Bold 10
-font pango: Lato 18
+font pango: Lato 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id gnome-terminal
+bindsym $mod+Return exec --no-startup-id terminator 
 
 
 # start a filemanager
@@ -117,16 +114,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Workspace names
-set $ws1  "1: term"
-set $ws2  "2: www"
-set $ws3  "3: dev"
+set $ws1  "1: "
+set $ws2  "2: "
+set $ws3  "3: "
 set $ws4  "4: four"
 set $ws5  "5: five"
 set $ws6  "6: six"
 set $ws7  "7: seven"
 set $ws8  "8: eight"
-set $ws9  "9: Music"
-set $ws10 "10: Communication"
+set $ws9  "9: "
+set $ws10 "10: "
 
 # browser workspace preferes external monitor
 workspace $ws1 output DP1
@@ -221,19 +218,22 @@ bindsym $mod2+Ctrl+Right workspace next
 # Assign some applications to certain workspaces
 # use xprop to figure out the class variable
 assign [class="Firefox"] $ws2
-assign [class="Chromium"] $ws2
+assign [class="Chrome"] $ws2
 assign [class="Pidgin"] $ws10
 assign [class="Franz"] $ws10
 assign [class="Spotify"] $ws9
 assign [class="spotify"] $ws9
+assign [class="^[Cc]ode"] $ws3
 
 # disable borders for some applications
-for_window [class="^Chromium$"] border pixel 1
+for_window [class=".*"] title_format "<span size='smaller'>%title</span>"
+for_window [class="^Chrome"] border pixel 1
 for_window [class="^Firefox$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="Nautilus"] border none
 #for_window [class="Gnome-terminal"] border none
 for_window [class="Spotify"] move to workspace $ws9
+for_window [class="^[Cc]ode"] border none
 
 # enable floating mode for some applications
 for_window [class="Steam" instance="Friends"] floating enable
@@ -244,6 +244,8 @@ for_window [class="Steam" title="^Steam$"] floating disable
 for_window [class="Pavucontrol"] floating enable
 for_window [window_role="pop-up"] floating enable
 
+for_window [class="^[Nn]otes"] floating enable
+
 # i3clock settings
 bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
 
@@ -252,13 +254,34 @@ bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
 # Keybindings to start applications
 bindsym $mod+c exec --no-startup-id gnome-calendar
-bindsym $mod+Shift+b exec --no-startup-id chromium
+bindsym $mod+Shift+b exec --no-startup-id $BROWSER
 bindsym $mod+b exec --no-startup-id firefox
 # Keybindings to switch to certain applications
 
 bar {
         position bottom
-        status_command i3status
+        status_command /home/shobhit/repos/dotfiles/ultimateBar/conky-i3bar
+        #status_command i3bar conky -c /home/shobhit/repos/dotfiles/i3/conky/.conkyrc
+        font pango: Lato 15
+        mode dock
+        #status_command i3status
+        colors {
+            background $base03
+            statusline $base0
+            separator  $base01
+            focused_workspace  $yellow $yellow $base03
+            active_workspace   $base01 $base01 $base03
+            inactive_workspace $base02 $base03 $base0
+            urgent_workspace   $red $red $base3
+        }
+}
+bar {
+        position top
+        status_command /home/shobhit/repos/dotfiles/i3/conky-i3bar
+        #status_command i3bar conky -c /home/shobhit/repos/dotfiles/i3/conky/.conkyrc
+        font pango: Lato 15
+        mode dock
+        #status_command i3status
         colors {
             background $base03
             statusline $base0
@@ -270,7 +293,8 @@ bar {
         }
 }
 
-client.focused          $base03 $base01 $base3 $blue
+
+client.focused          $base03 $yellow $base03 $blue
 client.focused_inactive $base03 $base02 $base0 $base02
 client.unfocused        $base03 $base02 $base0 $base02
 client.urgent           $base03 $red $base3 $base03
@@ -278,17 +302,18 @@ client.urgent           $base03 $red $base3 $base03
 exec --no-startup-id nm-applet
 
 # pulse audio volume control
-bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 10+ && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 10- && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 2+ && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 2- && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle && killall -SIGUSR1 i3status
 bindsym XF86Launch1 exec --no-startup-id pavucontrol
 bindsym $mod+F1 exec --no-startup-id pavucontrol
-bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
+bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 5
+bindsym XF86TouchpadToggle exec sh ~/repos/dotfiles/i3/mouse_toggle.sh
 
 # display monitor settings
-exec --no-startup-id xset dpms 600 600 600
+#exec --no-startup-id xset dpms 600 600 600
 
 # $mod+n reserved for close all notifications
 # see ~/.config/dunst/dunstrc for more
@@ -297,14 +322,7 @@ exec --no-startup-id xset dpms 600 600 600
 # With $mod:  Interactively select window or rectangle.
 # With Shift: JPEG instead of PNG.
 # With Ctrl:  Sleep 5 seconds before doing the screenshot.
-bindsym                Print               exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot taken"
-bindsym                Shift+Print         exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot taken"
-bindsym --release $mod+Print               exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot of window taken"
-bindsym --release $mod+Shift+Print         exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot of window taken"
-bindsym                Control+Print       exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot in 5s"
-bindsym                Control+Shift+Print exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot in 5s"
-bindsym --release $mod+Control+Print       exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot of window in 5s"
-bindsym --release $mod+Control+Shift+Print exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot of window in 5s"
+bindsym Print exec --no-startup-id sh ~/repos/dotfiles/rofi/rofi_screenshot.sh
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -312,8 +330,13 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+# Vscode shortcut
+bindsym $mod+Shift+v exec code
+
+# Note shortcut
+bindsym $mod+n exec notes
 # set desktop wallpaper
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id sh fehbg.sh
 
 # shutdown, reboot, lock script
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -352,14 +375,17 @@ bindsym $mod+I mode "$mode_display"
 #bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
 #bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
 
-bindsym $mod+Home exec --no-startup-id $HOME/.dock on
-bindsym $mod+End exec --no-startup-id $HOME/.dock off
-
 # for later use
 # Fn+2 → XF86ScreenSaver
 # Fn+2 → XF86ScreenSaver
 # Fn+4 → XF86Sleep & XF86Wakeup
 # Fn+12 → XF86Suspend
-#gaps inner 10
-#gaps outer 10
-new_window 1pixel
+gaps inner 10
+new_window normal 0 px
+hide_edge_borders both
+
+
+bindsym $mod+x move workspace to output VIRTUAL1
+
+
+#exec --no-startup-id sh 

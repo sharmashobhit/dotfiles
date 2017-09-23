@@ -105,3 +105,4 @@ export LC_ALL=en_US.UTF-8
 alias graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
 #eval "$BASH_POST_RC"
 alias ync='yaourt --noconfirm'
+source tmuxinator.zsh

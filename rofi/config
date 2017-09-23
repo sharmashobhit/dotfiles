@@ -8,6 +8,13 @@ rofi.color-window: #002b37, #002b37, #003642
 rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
 rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
 rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
-rofi.separator-style:                solid
-rofi.font: Lato 20
+rofi.font: Lucida Grande 30
 rofi.case-sensitive: false
+rofi.fullscreen: true
+rofi.padding: 300
+rofi.terminal: gnome-terminal
+rofi.ssh-command: gnome-terminal -e "{ssh-client} {host}"
+rofi.matching: fuzzy
+rofi.location: 0
+rofi.sidebar-mode: true
+rofi.height: 100
