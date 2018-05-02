@@ -8,9 +8,8 @@ call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
 Plug 'tpope/vim-fugitive'
-"Plugin 'leafgarland/typescript-vim'
 Plug 'wikitopian/hardmode'
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
@@ -21,11 +20,14 @@ Plug 'mhinz/vim-startify'
 Plug 'tmhedberg/simpylfold'
 Plug 'flazz/vim-colorschemes'
 Plug 'posva/vim-vue'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'majutsushi/tagbar'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'c0r73x/neotags.nvim'
-Plug 'editorconfig/editorconfig-vim'
+"Plug 'tmux-plugins/vim-tmux'
+"Plug 'majutsushi/tagbar'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'c0r73x/neotags.nvim'
+"Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go'
+Plug 'leafgarland/typescript-vim'
+Plug 'valloric/youcompleteme'
 
 call plug#end()
 filetype plugin indent on    " required
@@ -62,7 +64,7 @@ map n nzz"
 " Enable Airline extension by default
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'base16_monokai'
-
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 " Case insensitive search
 set ic
 
@@ -91,6 +93,7 @@ let g:ctrlp_prompt_mappings = {
 "Colorscheme - badwolf, with some tweaks
 "set background=dark
 syntax enable
+"colorscheme BusyBee
 colorscheme monokai
 "colorscheme sol
 let g:badwolf_darkgutter = 1

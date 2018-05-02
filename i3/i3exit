@@ -1,6 +1,8 @@
 #!/bin/sh
 lock() {
-    i3lock -c 000000
+    pkill -u "$USER" -USR1 dunst
+    i3lock --fuzzy
+    pkill -u "$USER" -USR2 dunst
     #i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
     #i3lock -i ~/repos/dotfiles/i3/img/lock.png
     #i3lock -i  ~/Pictures/wallpaper.png
