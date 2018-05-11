@@ -36,13 +36,13 @@ font-1 = FontAwesome:size=18;0
 font-2 = MaterialIcons:size=16;4
 modules-left = i3 
 modules-center = xwindow
-modules-right = compton backlight battery volume
+modules-right = compton backlight battery volume date
 tray-position = right
 tray-background = ${colors.background}
 tray-foreground = ${colors.foreground}
 tray-detached = false
 tray-maxsize = 32
-tray-padding = 0
+tray-padding = 4
 
 [module/compton]
 type = custom/script
@@ -149,3 +149,9 @@ ramp-volume-1 =
 ramp-volume-2 =
 ramp-volume-3 =
 
+[module/date]
+type = internal/date
+font = 0
+format-foreground = ${colors.foreground}
+date = %a %d, %H:%M%%{F-}
+interval = 30
