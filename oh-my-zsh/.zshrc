@@ -5,7 +5,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenvwrapper python web-search zsh_reload git-extras sudo archlinux celery common-aliases npm ssh-agent)
+plugins=(git python git-extras sudo archlinux common-aliases ssh-agent)
 
 # User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/shobhit/.gem/ruby/2.3.0/bin:/home/shobhit/repos"
@@ -81,9 +81,9 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Use the alias, you asshole: "
-eval $(thefuck --alias)
-alias f='fuck'
+# export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Use the alias, you asshole: "
+# eval $(thefuck --alias)
+# alias f='fuck'
 # Coverfox settings
 alias cf="cd ~/repos/rblog/base && clear"
 alias hotspot="sudo create_ap wlp3s0 enp2s0 ShobhitAPHotspot password"
@@ -105,4 +105,4 @@ export LC_ALL=en_US.UTF-8
 alias graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
 #eval "$BASH_POST_RC"
 alias ync='yaourt --noconfirm'
-source tmuxinator.zsh
+# source tmuxinator.zsh

@@ -1,0 +1,3 @@
+# Ignore transmission local files and all
+downloader/config
+downloader/.env
