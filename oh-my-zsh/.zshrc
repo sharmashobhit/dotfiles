@@ -104,5 +104,7 @@ export LC_ALL=en_US.UTF-8
 #export LC_CTYPE=en_US.UTF-8
 alias graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
 #eval "$BASH_POST_RC"
-alias ync='yaourt --noconfirm'
+alias ync='yay --noconfirm'
 # source tmuxinator.zsh
+alias lzd=lazydocker
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
