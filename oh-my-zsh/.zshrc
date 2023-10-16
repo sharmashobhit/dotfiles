@@ -55,6 +55,9 @@ plugins=(git python git-extras sudo archlinux common-aliases ssh-agent)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/shobhit/.gem/ruby/2.3.0/bin:/home/shobhit/repos"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
