@@ -1,3 +1,4 @@
 # Ignore transmission local files and all
 downloader/config
+downloader/config_jd
 downloader/.env
