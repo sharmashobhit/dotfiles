@@ -1,0 +1,66 @@
+[Firefox On VS1]
+Description=Firefox On VS1
+desktops=ee4ce913-1b70-47a7-a14e-38eea8caa93a
+desktopsrule=3
+wmclass=navigator firefox
+wmclasscomplete=true
+wmclassmatch=1
+
+[Firefox PIP]
+Description=Firefox PIP
+desktops=\\0
+desktopsrule=2
+wmclass=toolkit firefox
+wmclasscomplete=true
+wmclassmatch=1
+
+[Logseq Screen 4]
+Description=Logseq Screen 4
+desktops=32ec6a6b-1790-4330-9275-509f4c40100c
+desktopsrule=3
+wmclass=logseq
+wmclassmatch=1
+
+[Move Obsidian to Screen 4]
+Description=Move Obsidian to Screen 4
+clientmachine=localhost
+desktops=32ec6a6b-1790-4330-9275-509f4c40100c
+desktopsrule=3
+title=Picture-in-Picture
+windowrole=PictureInPicture
+wmclass=obsidian
+wmclassmatch=1
+
+[VScode on VS2]
+Description=VScode on VS2
+clientmachine=localhost
+desktops=c2d6d8b8-9fc2-4778-866d-04cbc62dd75b
+desktopsrule=3
+title=Picture-in-Picture
+windowrole=PictureInPicture
+wmclass=code
+wmclassmatch=1
+
+[Window settings for brave-browser]
+Description=Window settings for brave-browser
+clientmachine=localhost
+desktops=ee4ce913-1b70-47a7-a14e-38eea8caa93a
+desktopsrule=3
+title=New Tab - Brave
+types=1
+windowrole=browser
+windowrolematch=1
+wmclass=brave-browser
+wmclassmatch=1
+
+[Window settings for discord]
+Description=Window settings for discord
+clientmachine=localhost
+desktops=32ec6a6b-1790-4330-9275-509f4c40100c
+desktopsrule=3
+title=Friends - Discord
+types=1
+windowrole=browser-window
+windowrolematch=1
+wmclass=discord
+wmclassmatch=1
