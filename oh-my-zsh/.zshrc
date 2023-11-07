@@ -60,43 +60,29 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-#export LANG=en_US.UTF-8
+# #Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='vim'
+# fi
 
-#Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+# Installing znap + znap packages
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Download Znap, if it's not there yet.
+[[ -r ~/repos/ext/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/repos/ext/znap
+source ~/repos/ext/znap/znap.zsh  # Start Znap
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# ZNAP Packages
+znap prompt sindresorhus/pure
+znap source marlonrichert/zsh-autocomplete
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Use the alias, you asshole: "
-# eval $(thefuck --alias)
-# alias f='fuck'
-# Coverfox settings
-alias cf="cd ~/repos/rblog/base && clear"
-alias hotspot="sudo create_ap wlp3s0 enp2s0 ShobhitAPHotspot password"
-alias cf_honcho='cf && PYTHONIOENCODING=UTF-8 PYTHONUNBUFFERED=TRUE honcho -f local_procfile start redis celery'
-alias cf_django='cf && python manage.py runserver 0.0.0.0:8000'
-alias common_run="cf && cd ../common/ && honcho -f local_procfile start celerydistcoverfox celerydistjarvis"
-alias ultron_run="cf && cd ../jarvis/ && honcho -f local_procfile start redis node django"
-alias sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
-# End coverfox settings
-alias cf_vpn="cd ~/Downloads/shobhit && sudo openvpn --config cfsingapore_openvpn.ovpn"
+# End ZNAP
+
+
+alias django-sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
 alias v="vim"
 alias kp="fuser -n tcp -k "
 alias referencefile="vim ~/referencefile.txt"
@@ -105,7 +91,7 @@ alias :q="echo 'This is not VIM!'"
 export LC_ALL=en_US.UTF-8
 #export LANG=en_US.UTF-8
 #export LC_CTYPE=en_US.UTF-8
-alias graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
+alias git-graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
 #eval "$BASH_POST_RC"
 alias ync='yay --noconfirm'
 # source tmuxinator.zsh
