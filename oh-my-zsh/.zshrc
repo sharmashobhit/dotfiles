@@ -78,6 +78,11 @@ source ~/repos/ext/znap/znap.zsh  # Start Znap
 # ZNAP Packages
 znap prompt sindresorhus/pure
 znap source marlonrichert/zsh-autocomplete
+znap source esc/conda-zsh-completion # Completions for conda environments
+
+znap fpath _kubectl 'kubectl completion  zsh'
+znap fpath _rustup  'rustup  completions zsh'
+znap fpath _cargo   'rustup  completions zsh cargo'
 
 # End ZNAP
 
