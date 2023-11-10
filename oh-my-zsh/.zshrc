@@ -79,11 +79,14 @@ source ~/repos/ext/znap/znap.zsh  # Start Znap
 znap prompt sindresorhus/pure
 znap source marlonrichert/zsh-autocomplete
 znap source esc/conda-zsh-completion # Completions for conda environments
+znap source lukechilds/zsh-better-npm-completion
 
 znap fpath _kubectl 'kubectl completion  zsh'
 znap fpath _rustup  'rustup  completions zsh'
 znap fpath _cargo   'rustup  completions zsh cargo'
+znap fpath _pnpm 'pnpm install-completion zsh'
 
+# znap fpath _npm 'npm completion'
 # End ZNAP
 
 
@@ -102,3 +105,8 @@ alias ync='yay --noconfirm'
 # source tmuxinator.zsh
 alias lzd=lazydocker
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+conda config --set auto_activate_base true
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
