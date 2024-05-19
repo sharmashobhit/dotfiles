@@ -1,35 +1,47 @@
-version: '3.3'
+version: "3.8"
 services:
-    transmission-openvpn:
-        cap_add:
-            - NET_ADMIN
-        volumes:
-            - '${DOWNLOAD_DIR}:/data'
-            - './config/:/config'
-        environment:
-            - OPENVPN_PROVIDER=NORDVPN
-            - NORDVPN_CATEGORY=legacy_p2p
-            - OPENVPN_USERNAME=${OPENVPN_USERNAME}
-            - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
-            - TRANSMISSION_WEB_UI=flood-for-transmission
-            - LOCAL_NETWORK=192.168.0.0/16
-            - WEBPROXY_ENABLED=true
-            - WEBPROXY_PORT=8118
-            - NORDVPN_COUNTRY=${NORDVPN_COUNTRY}
-        logging:
-            driver: json-file
-            options:
-                max-size: 10m
-        ports:
-            - 9091:9091
-            - 8118:8118
-        image: haugene/transmission-openvpn
-        restart: unless-stopped
-    jdownloader:
-        volumes:
-            - '${DOWNLOAD_DIR}/jd/:/output/'
-            - './config_jd/:/config/'
-        ports:
-            - 5800:5800
-        image: jlesage/jdownloader-2:latest
-        restart: unless-stopped
+  samba:
+    volumes:
+      - "${DOWNLOAD_DIR}:/mount"
+    image: dperson/samba
+    restart: unless-stopped
+    ports:
+      - 139:139
+      - 445:445
+    command: '-s "TowerPC;/mount;yes;no;no;shobhit" -u "shobhit;." -p'
+  transmission-openvpn:
+    cap_add:
+      - NET_ADMIN
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    volumes:
+      - "${DOWNLOAD_DIR}:/data"
+      - "./config/:/config"
+    environment:
+      - OPENVPN_PROVIDER=NORDVPN
+      - NORDVPN_CATEGORY=${NORDVPN_CATEGORY}
+      - OPENVPN_USERNAME=${OPENVPN_USERNAME}
+      - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
+      - TRANSMISSION_WEB_UI=flood-for-transmission
+      - LOCAL_NETWORK=192.168.0.0/16
+      - WEBPROXY_ENABLED=true
+      - WEBPROXY_PORT=8118
+      - NORDVPN_COUNTRY=${NORDVPN_COUNTRY}
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+    ports:
+      - 9091:9091
+      - 8118:8118
+    image: haugene/transmission-openvpn
+    restart: unless-stopped
+  jdownloader:
+    volumes:
+      - "${DOWNLOAD_DIR}/jd/:/output/"
+      - "./config_jd/:/config/"
+    ports:
+      - 5800:5800
+    image: jlesage/jdownloader-2:latest
+    restart: unless-stopped

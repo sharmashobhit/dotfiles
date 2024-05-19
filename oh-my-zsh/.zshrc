@@ -49,14 +49,14 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python git-extras sudo archlinux common-aliases ssh-agent)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/shobhit/.gem/ruby/2.3.0/bin:/home/shobhit/repos"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/shobhit/.gem/ruby/2.3.0/bin:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="/home/shobhit/.local/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,14 +80,17 @@ znap prompt sindresorhus/pure
 znap source marlonrichert/zsh-autocomplete
 znap source esc/conda-zsh-completion # Completions for conda environments
 znap source lukechilds/zsh-better-npm-completion
+znap source chr-fritz/docker-completion.zshplugin
 
 znap fpath _kubectl 'kubectl completion  zsh'
 znap fpath _rustup  'rustup  completions zsh'
 znap fpath _cargo   'rustup  completions zsh cargo'
+znap fpath _volta 'volta completions zsh'
 znap fpath _pnpm 'pnpm install-completion zsh'
 
 # znap fpath _npm 'npm completion'
 # End ZNAP
+plugins=(git python git-extras sudo archlinux common-aliases ssh-agent docker-completion)
 
 
 alias django-sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
@@ -105,8 +108,21 @@ alias ync='yay --noconfirm'
 # source tmuxinator.zsh
 alias lzd=lazydocker
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-conda config --set auto_activate_base true
+export CONDA_AUTO_ACTIVATE_BASE=True
+# conda config --set auto_activate_base True
 
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+# pnpm
+export PNPM_HOME="/home/shobhit/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+eval "$(zoxide init zsh)"
+[ -s "/home/shobhit/.jabba/jabba.sh" ] && source "/home/shobhit/.jabba/jabba.sh"
+
+export ANDROID_HOME=/home/shobhit/Android/Sdk
