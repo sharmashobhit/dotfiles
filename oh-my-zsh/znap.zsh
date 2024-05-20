@@ -15,6 +15,7 @@ znap source lukechilds/zsh-better-npm-completion
 znap source chr-fritz/docker-completion.zshplugin
 znap source unixorn/git-extra-commands
 znap source zsh-users/zsh-autosuggestions
+znap source asdf-vm/asdf
 
 znap fpath _kubectl 'kubectl completion  zsh'
 znap fpath _rustup  'rustup  completions zsh'

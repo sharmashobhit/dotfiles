@@ -93,8 +93,8 @@ export CONDA_AUTO_ACTIVATE_BASE=True
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+alias lla='ls -lah'
+alias lt='ls --tree -lah'
 
 
 if [[ $(uname) == "Darwin" ]]; then
