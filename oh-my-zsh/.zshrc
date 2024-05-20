@@ -56,45 +56,9 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH="/home/shobhit/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/opt/rocminfo/bin:$PATH"
-source $ZSH/oh-my-zsh.sh
 
 # source $ZSH/oh-my-zsh.sh
-
-# #Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='vim'
-# fi
-
-# Installing znap + znap packages
-
-# Download Znap, if it's not there yet.
-[[ -r ~/repos/ext/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/repos/ext/znap
-source ~/repos/ext/znap/znap.zsh  # Start Znap
-
-# ZNAP Packages
-znap prompt sindresorhus/pure
-znap source marlonrichert/zsh-autocomplete
-znap source esc/conda-zsh-completion # Completions for conda environments
-znap source lukechilds/zsh-better-npm-completion
-znap source chr-fritz/docker-completion.zshplugin
-znap source unixorn/git-extra-commands
-
-znap fpath _kubectl 'kubectl completion  zsh'
-znap fpath _rustup  'rustup  completions zsh'
-znap fpath _cargo   'rustup  completions zsh cargo'
-znap fpath _volta 'volta completions zsh'
-znap fpath _pnpm 'pnpm install-completion zsh'
-
-# znap fpath _npm 'npm completion'
-# End ZNAP
-plugins=(git python git-extras sudo archlinux common-aliases ssh-agent docker-completion aws)
 
 
 alias django-sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
@@ -119,22 +83,20 @@ export CONDA_AUTO_ACTIVATE_BASE=True
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-# pnpm
-export PNPM_HOME="/home/shobhit/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+
+if [[ $(uname) == "Darwin" ]]; then
+    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
+elif [[ $(uname) == "Linux" ]]; then
+    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/linux.zsh"
+fi
+
 eval "$(zoxide init zsh)"
-[ -s "/home/shobhit/.jabba/jabba.sh" ] && source "/home/shobhit/.jabba/jabba.sh"
 
-export ANDROID_HOME=/home/shobhit/Android/Sdk
-export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
-if [[ $(uname) == "Darwin" ]]; then
-    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
-fi
-
-if [[ $(uname) == "Darwin" ]]; then
-    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
-fi
+source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/znap.zsh"
+znap source romkatv/powerlevel10k powerlevel10k.zsh-theme
