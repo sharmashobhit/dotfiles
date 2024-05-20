@@ -57,7 +57,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="/home/shobhit/.local/bin:$PATH"
-
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/opt/rocminfo/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # #Preferred editor for local and remote sessions
@@ -81,6 +82,7 @@ znap source marlonrichert/zsh-autocomplete
 znap source esc/conda-zsh-completion # Completions for conda environments
 znap source lukechilds/zsh-better-npm-completion
 znap source chr-fritz/docker-completion.zshplugin
+znap source unixorn/git-extra-commands
 
 znap fpath _kubectl 'kubectl completion  zsh'
 znap fpath _rustup  'rustup  completions zsh'
@@ -90,7 +92,7 @@ znap fpath _pnpm 'pnpm install-completion zsh'
 
 # znap fpath _npm 'npm completion'
 # End ZNAP
-plugins=(git python git-extras sudo archlinux common-aliases ssh-agent docker-completion)
+plugins=(git python git-extras sudo archlinux common-aliases ssh-agent docker-completion aws)
 
 
 alias django-sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
@@ -126,3 +128,4 @@ eval "$(zoxide init zsh)"
 [ -s "/home/shobhit/.jabba/jabba.sh" ] && source "/home/shobhit/.jabba/jabba.sh"
 
 export ANDROID_HOME=/home/shobhit/Android/Sdk
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
