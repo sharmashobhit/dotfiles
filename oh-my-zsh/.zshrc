@@ -61,6 +61,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/rocminfo/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
+# source $ZSH/oh-my-zsh.sh
+
 # #Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -129,3 +131,10 @@ eval "$(zoxide init zsh)"
 
 export ANDROID_HOME=/home/shobhit/Android/Sdk
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+if [[ $(uname) == "Darwin" ]]; then
+    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
+fi
+
+if [[ $(uname) == "Darwin" ]]; then
+    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
+fi
