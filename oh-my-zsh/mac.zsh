@@ -16,13 +16,10 @@ unset __conda_setup
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/emulator
 
-export PATH="$PATH:/opt/homebrew/bin/:$HOME/.cargo/bin"
+
+export PATH="$PATH:/opt/homebrew/bin/"
 
 plugins=(git python git-extras sudo common-aliases ssh-agent aws)
