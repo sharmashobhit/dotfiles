@@ -1,0 +1,14 @@
+[settings]
+experimental = true
+
+[env]
+# supports arbitrary env vars so mise can be used like direnv/dotenv
+NODE_ENV = 'production'
+
+[tools]
+# specify single or multiple versions
+awscli = '2.15.54'
+java = 'openjdk-17.0.2'
+rclone = '1.66.0'
+serverless = "latest"
+bun = "latest"

@@ -9,6 +9,8 @@ esac
 export ANDROID_HOME=/home/shobhit/Android/Sdk
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
+znap source chr-fritz/docker-completion.zshplugin
+
 plugins=(git python git-extras sudo archlinux common-aliases ssh-agent docker-completion aws)
 
 export PATH="/home/shobhit/.local/bin:$PATH"
