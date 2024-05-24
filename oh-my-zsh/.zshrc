@@ -94,7 +94,6 @@ alias la='ls -a'
 alias lla='ls -lah'
 alias lt='ls --tree -lah'
 
-source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/znap.zsh"
 
 if [[ $(uname) == "Darwin" ]]; then
     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
@@ -102,8 +101,7 @@ elif [[ $(uname) == "Linux" ]]; then
     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/linux.zsh"
 fi
 
-znap source zsh-users/zsh-syntax-highlighting
-znap source romkatv/powerlevel10k powerlevel10k.zsh-theme
+source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/znap.zsh"
 
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -115,3 +113,4 @@ alias rclone-gui='rclone rcd --rc-web-gui'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

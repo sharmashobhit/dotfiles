@@ -19,7 +19,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
-
 export PATH="$PATH:/opt/homebrew/bin/"
+export PATH="$PATH:/Applications/Alacritty.app/Contents/MacOS/"
 
 plugins=(git python git-extras sudo common-aliases ssh-agent aws)

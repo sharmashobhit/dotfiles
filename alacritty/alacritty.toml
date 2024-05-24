@@ -15,3 +15,9 @@ italic.family = "FiraCode Nerd Font Mono"
 bold_italic.family = "FiraCode Nerd Font Mono"
 
 size = 14.0
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+]
