@@ -7,6 +7,10 @@
         https://github.com/marlonrichert/zsh-snap.git ~/repos/ext/znap
 source ~/repos/ext/znap/znap.zsh  # Start Znap
 
+
+znap eval mise "mise activate zsh"
+znap eval zoxide "zoxide init zsh"
+
 # ZNAP Packages
 # znap prompt sindresorhus/pure
 znap source marlonrichert/zsh-autocomplete
@@ -19,11 +23,8 @@ znap source zsh-users/zsh-autosuggestions
 znap fpath _kubectl 'kubectl completion  zsh'
 znap fpath _rustup 'rustup  completions zsh'
 znap fpath _cargo 'rustup  completions zsh cargo'
-znap fpath _volta 'volta completions zsh'
-znap fpath _pnpm 'pnpm install-completion zsh'
-
-znap eval mise "mise activate zsh"
-znap eval zoxide "zoxide init zsh"
+znap fpath _mise 'mise completions zsh'
+# znap fpath _pnpm 'pnpm install-completion zsh'
 
 # znap fpath _npm 'npm completion'
 # End ZNAP

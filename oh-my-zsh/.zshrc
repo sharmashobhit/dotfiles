@@ -61,8 +61,6 @@ export ZSH=~/.oh-my-zsh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/shobhit/.gem/ruby/2.3.0/bin:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # source $ZSH/oh-my-zsh.sh

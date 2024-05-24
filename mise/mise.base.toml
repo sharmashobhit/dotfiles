@@ -1,5 +1,6 @@
 [settings]
 experimental = true
+env_file = '.env'
 
 [tools]
 # specify single or multiple versions
