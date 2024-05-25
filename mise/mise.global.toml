@@ -5,10 +5,12 @@
 [tools]
 # specify single or multiple versions
 awscli = '2.15.54'
-java = 'openjdk-17.0.2'
 rclone = '1.66.0'
-serverless = "latest"
+serverless = "3.38.0"
 bun = "latest"
 node = "latest"
 pnpm = "latest"
 usage = "latest"
+poetry = "latest"
+gitconfig = "latest"
+lazygit = "0.42.0"
