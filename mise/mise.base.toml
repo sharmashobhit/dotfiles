@@ -7,3 +7,4 @@ env_file = '.env'
 zoxide = "latest"
 lsd = "latest"
 ripgrep = "latest"
+bat = "latest"

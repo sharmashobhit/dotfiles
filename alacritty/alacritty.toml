@@ -1,28 +1,48 @@
+import = ["~/.config/alacritty/alacritty-theme/themes/dracula.toml"]
 
 [window]
-opacity = 0.9
+opacity = 0.8
+# blur = true
 padding.x = 10
 padding.y = 10
 
-decorations = "Full"
+decorations = "Buttonless"
 decorations_theme_variant = "Dark"
 startup_mode = "Maximized"
 
 [shell]
 program = "/bin/zsh"
-args = ["-l", "-c", "tmux"]
+args = ["-l", "-c", "tmux attach || tmux"]
+
+[env]
+TERM = "xterm-256color"
+
 
 [font]
-
-normal.family = "FiraCode Nerd Font Mono"
-bold.family = "FiraCode Nerd Font Mono"
-italic.family = "FiraCode Nerd Font Mono"
-bold_italic.family = "FiraCode Nerd Font Mono"
-
 size = 14.0
+
+[font.bold]
+family = "FiraCode Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "FiraCode Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Retina"
 
 [keyboard]
 bindings = [
   { key = "Right", mods = "Alt", chars = "\u001BF" },
   { key = "Left", mods = "Alt", chars = "\u001BB" },
 ]
+
+[cursor.style]
+shape = "Block"
+blinking = "Always"
