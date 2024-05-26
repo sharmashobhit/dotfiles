@@ -2,3 +2,5 @@
 downloader/config
 downloader/config_jd
 downloader/.env
+
+**/*.zwc
