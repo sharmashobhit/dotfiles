@@ -108,6 +108,8 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
 
+export EDITOR="nvim"
+
 alias rclone-gui='rclone rcd --rc-web-gui'
 #. $HOME/.nix-profile/etc/profile.d/nix.sh
 
