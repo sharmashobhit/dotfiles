@@ -62,24 +62,12 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
 # source $ZSH/oh-my-zsh.sh
 
-
-alias django-sm="cf && python manage.py showmigrations | grep -v '\[X\]'"
-alias v="vim"
-alias kp="fuser -n tcp -k "
-alias referencefile="vim ~/referencefile.txt"
-alias :qa="echo 'This is not VIM!'"
-alias :q="echo 'This is not VIM!'"
 export LC_ALL=en_US.UTF-8
 #export LANG=en_US.UTF-8
 #export LC_CTYPE=en_US.UTF-8
-alias git-graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
-#eval "$BASH_POST_RC"
-alias ync='yay --noconfirm'
-# source tmuxinator.zsh
-alias lzd=lazydocker
+
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 export CONDA_AUTO_ACTIVATE_BASE=True
 # conda config --set auto_activate_base True
@@ -88,13 +76,6 @@ export CONDA_AUTO_ACTIVATE_BASE=True
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -lah'
-alias lt='ls --tree -lah'
-
-
 if [[ $(uname) == "Darwin" ]]; then
     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
 elif [[ $(uname) == "Linux" ]]; then
@@ -102,6 +83,10 @@ elif [[ $(uname) == "Linux" ]]; then
 fi
 
 source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/znap.zsh"
+source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/aliases.zsh"
+# Plugins
+source "$ZSH/plugins/git/git.plugin.zsh"
+source "$ZSH/plugins/sudo/sudo.plugin.zsh"
 
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -109,9 +94,6 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 export EDITOR="nvim"
-
-alias rclone-gui='rclone rcd --rc-web-gui'
-#. $HOME/.nix-profile/etc/profile.d/nix.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
