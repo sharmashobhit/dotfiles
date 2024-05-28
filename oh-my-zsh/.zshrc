@@ -76,6 +76,13 @@ export CONDA_AUTO_ACTIVATE_BASE=True
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
+# Download Znap, if it's not there yet.
+[[ -r ~/repos/ext/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/repos/ext/znap
+source ~/repos/ext/znap/znap.zsh  # Start Znap
+
+
 if [[ $(uname) == "Darwin" ]]; then
     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
 elif [[ $(uname) == "Linux" ]]; then

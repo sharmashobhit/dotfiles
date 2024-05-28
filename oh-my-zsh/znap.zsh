@@ -1,12 +1,6 @@
 
 # Installing znap + znap packages
 
-# Download Znap, if it's not there yet.
-[[ -r ~/repos/ext/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/repos/ext/znap
-source ~/repos/ext/znap/znap.zsh  # Start Znap
-
 
 znap eval mise "mise activate zsh"
 znap eval _mise "mise completions zsh"
