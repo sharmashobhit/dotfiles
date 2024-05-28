@@ -12,12 +12,12 @@ znap eval mise "mise activate zsh"
 znap eval _mise "mise completions zsh"
 # ZNAP Packages
 # znap prompt sindresorhus/pure
-znap source marlonrichert/zsh-autocomplete
 znap source esc/conda-zsh-completion # Completions for conda environments
 znap source lukechilds/zsh-better-npm-completion
 znap source unixorn/git-extra-commands
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
+znap source marlonrichert/zsh-autocomplete
 znap source romkatv/powerlevel10k powerlevel10k.zsh-theme
 
 # znap source asdf-vm/asdf
