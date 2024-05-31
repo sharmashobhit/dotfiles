@@ -13,7 +13,7 @@ znap source unixorn/git-extra-commands
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
-znap source romkatv/powerlevel10k powerlevel10k.zsh-theme
+# znap source romkatv/powerlevel10k powerlevel10k.zsh-theme
 
 # znap source asdf-vm/asdf
 if type "kubectl" > /dev/null; then
@@ -29,6 +29,7 @@ fi
 # echo "$(which zoxide)"
 # echo "$(/Users/shobhitsharma/.local/share/mise/installs/zoxide/latest/bin/zoxide)"
 znap eval _zoxide 'zoxide init zsh'
+znap eval _starship "starship init zsh"
 # fi
 # znap fpath _npm 'npm completion'
 # End ZNAP

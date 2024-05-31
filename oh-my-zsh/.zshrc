@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -12,7 +12,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="agnoster"
+ZSH_THEME="starship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -65,6 +65,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # source $ZSH/oh-my-zsh.sh
 
 export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 #export LANG=en_US.UTF-8
 #export LC_CTYPE=en_US.UTF-8
 
@@ -83,14 +84,16 @@ export CONDA_AUTO_ACTIVATE_BASE=True
 source ~/repos/ext/znap/znap.zsh  # Start Znap
 
 
-if [[ $(uname) == "Darwin" ]]; then
-    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
-elif [[ $(uname) == "Linux" ]]; then
-    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/linux.zsh"
-fi
+# if [[ $(uname) == "Darwin" ]]; then
+#     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
+# elif [[ $(uname) == "Linux" ]]; then
+#     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/linux.zsh"
+# fi
 
 source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/znap.zsh"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/aliases.zsh"
+source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/keybindings.zsh"
 # Plugins
 source "$ZSH/plugins/git/git.plugin.zsh"
 source "$ZSH/plugins/sudo/sudo.plugin.zsh"
@@ -112,6 +115,12 @@ setopt HIST_IGNORE_DUPS
 #add timestamp for each entry
 setopt EXTENDED_HISTORY
 
+# bindkey "^[[1;5C" forward-word
+# bindkey "^[[1;5D" backward-word
+# bindkey  "^[[1~"   beginning-of-line
+# bindkey  "^[[4~"   end-of-line
+# bindkey  "^[[3~"  delete-char
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
