@@ -15,5 +15,6 @@ plugins=(git python git-extras sudo archlinux common-aliases ssh-agent docker-co
 
 export PATH="/home/shobhit/.local/bin:$PATH"
 export PATH="/opt/rocm/bin:$PATH"
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
 export ANDROID_AVD_HOME="$HOME/.var/app/com.google.AndroidStudio/config/.android/avd"

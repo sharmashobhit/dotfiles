@@ -84,11 +84,11 @@ export CONDA_AUTO_ACTIVATE_BASE=True
 source ~/repos/ext/znap/znap.zsh  # Start Znap
 
 
-# if [[ $(uname) == "Darwin" ]]; then
-#     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
-# elif [[ $(uname) == "Linux" ]]; then
-#     source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/linux.zsh"
-# fi
+if [[ $(uname) == "Darwin" ]]; then
+    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/mac.zsh"
+elif [[ $(uname) == "Linux" ]]; then
+    source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/linux.zsh"
+fi
 
 source "$HOME/repos/github.com/sharmashobhit/dotfiles/oh-my-zsh/znap.zsh"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
