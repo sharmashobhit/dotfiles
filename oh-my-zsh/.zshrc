@@ -115,6 +115,9 @@ setopt HIST_IGNORE_DUPS
 #add timestamp for each entry
 setopt EXTENDED_HISTORY
 
+export IDF_PATH=~/esp/esp-idf
+export PATH="$IDF_PATH/tools:$PATH"
+
 # bindkey "^[[1;5C" forward-word
 # bindkey "^[[1;5D" backward-word
 # bindkey  "^[[1~"   beginning-of-line
